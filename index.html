@@ -4,6 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>Steven J. Johnson</title>
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
@@ -29,10 +30,10 @@
 				</div>
 
 
-				<div id = "home" class ="content">
+				<div id = "home-tab" class ="content">
 					<div class="pure-g">
 						<div class="pure-u-2-5">
-							<img class="pure-img-responsive" src="me.jpg" alt="That's me!" height="95%" width="95%">
+							<img class="pure-img-responsive" src="media/me.jpg" alt="That's me!" height="95%" width="95%">
 						</div>
 						<div class="pure-u-3-5">
 							<h2 class="content-subhead">About</h2>
@@ -41,26 +42,59 @@
 					</div>
 				</div>
 
-				<div id = "research" class="content">
-					<p> research </p>
+				<div id = "research-tab" class="content" style="display: none;">
+					<p> research asdjkfajsdfklasdjf;klajdsfl;adj flk;asdjflaksdjfla;ksdjfal;ksdjfla;ksdjfal;ksdjfal ;kdsjf;lskadjf;a lksdjf;lak sdjfl;aksdjfl;aksjdf;lkajsdf;lkajsdfkajsd;flkajsd;klfjasd;lfkjasd;lkfjsad;fkljasdfkjas;dklfjasd;kfjfffjasdjjffasdjkdf;jasf//asdfasdf/asdf/ as/f/asf///asdf/asdfas/df</p>
 				</div>
 
-				<div id = "courses" class="content">
-					<p> courses</p>
+				<div id = "courses-tab" class="content" style="display: none;">
+					<p> The following is a list of the courses I have taken in graduate school, along with a link to the final paper (if applicable). </p>
+					<h2 class="content-subhead">Spring 2014</h2>
+					<p class="content-close-subhead"> CS760: Machine Learning </p>
+					<p class="content-close-subhead"> CS570: Human-Computer Interaction (Design Intensive) </p>
+
+					<h2 class="content-subhead">Fall 2013</h2>
+					<p class="content-close-subhead"> CS770: Human-Computer Interaction (Research Intensive) <br> 
+						<em>Paper: <a href="docs/collab.pdf" target="_blank">Googly Eyed</a></em> </p>
+
+					<p class="content-close-subhead"> CS706: Analysis of Software Artifacts <br> 
+						<em>Paper: <a href="docs/commits.pdf" target="_blank">Bad Commit Smells</a></em> </p>
 				</div>
 
-				<div id = "publications" class="content">
-					<p> publications</p>
+				<div id = "publications-tab" class="content" style="display: none;">
+					<p> Coming soon to a conference near you!</p>
 				</div>
 
-				<div id = "cv" class="content">
-					<p> cv</p>
+				<div id = "cv-tab" class="content" style="display: none;">
+					<p> Click <a href="docs/sjjCV.pdf" target="_blank">here</a> for a printable version! (roughly 175kb)</p>
 				</div>
 
-				<div id = "contact" class="content">
+				<div id = "contact-tab" class="content" style="display: none;">
 					<p> contact</p>
 				</div>
 			</div>
 		</div>
+
+		<script>
+		$(".pure-menu.pure-menu-open li").click(function()
+		{
+			// find the currently displayed menu item and change its class to unselected
+			var pastselected = $(".pure-menu-selected")
+			pastselected.removeClass("pure-menu-selected");
+
+			// find the currently displayed div and hide it
+			var target = pastselected.children("a").attr("href");
+			var hide = $(target + "-tab");
+			hide.hide();
+
+			// change the class of the li to selected
+			$(this).attr("class", "pure-menu-selected");
+
+			// find the div to show and show it!
+			var target = $(this).children("a").attr("href");
+			var show = $(target+"-tab");
+			show.show();
+		});
+		</script>
+
 	</body>
 </html>

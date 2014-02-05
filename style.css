@@ -77,6 +77,12 @@ The content `<div>` is where all your content goes.
     color: #888;
 }
 
+.content-close-subhead {
+    margin: 10px 0 20px 0;
+    font-weight: 300;
+    color: #888;
+}
+
 
 
 /*
